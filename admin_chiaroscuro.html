@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Admin - Anota AI | EU+ NEGÓCIO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --bg-color: #060E18;
+            --gold-color: #C4A265;
+            --text-main: #EEF0F2;
+            --text-sec: #A0B1C1;
+            --card-bg: rgba(255, 255, 255, 0.03);
+            --border-color: rgba(196, 162, 101, 0.2);
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'DM Sans', sans-serif;
+            margin: 0;
+        }
+
+        .admin-header {
+            background-color: rgba(6, 14, 24, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(10px);
+        }
+
+        .brand-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin: 0;
+        }
+
+        .brand-plus { color: var(--gold-color); font-weight: bold; }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            padding: 30px 40px;
+        }
+
+        .stat-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: left;
+        }
+
+        .stat-value {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--gold-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.8rem;
+            color: var(--text-sec);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .main-container { padding: 0 40px 40px; }
+
+        .data-table-container {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .table {
+            color: var(--text-main);
+            margin-bottom: 0;
+            font-size: 0.85rem;
+        }
+
+        .table thead th {
+            background-color: rgba(196, 162, 101, 0.05);
+            color: var(--gold-color);
+            font-family: 'Cormorant Garamond', serif;
+            padding: 15px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .table tbody td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+            vertical-align: middle;
+        }
+
+        .badge-plan {
+            font-size: 0.7rem;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        .plan-premium { background-color: rgba(196, 162, 101, 0.2); color: var(--gold-color); border: 1px solid var(--gold-color); }
+        .plan-basico { background-color: rgba(122, 143, 163, 0.2); color: #7A8FA3; border: 1px solid #7A8FA3; }
+        .plan-free { background-color: rgba(255, 255, 255, 0.05); color: #fff; }
+
+        .client-status {
+            font-size: 0.7rem;
+            padding: 2px 6px;
+            border-radius: 10px;
+            margin-left: 5px;
+        }
+
+        .status-fiel { background-color: #25D366; color: #000; }
+        .status-novo { background-color: #3498db; color: #fff; }
+        .status-risco { background-color: #e67e22; color: #fff; }
+
+        .btn-whatsapp-admin {
+            color: #25D366;
+            font-size: 1.1rem;
+            transition: transform 0.2s;
+        }
+
+        .btn-whatsapp-admin:hover { transform: scale(1.2); }
+
+        .search-admin {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+            border-radius: 8px;
+            padding: 10px 20px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="admin-header shadow">
+        <h1 class="brand-title">EU<span class="brand-plus">+</span> NEGÓCIO | <small style="font-size: 1rem; color: var(--gold-color);">Master Admin</small></h1>
+        <div class="d-flex gap-3">
+            <input type="text" class="search-admin" placeholder="Buscar prestador, e-mail ou ID...">
+            <button class="btn btn-outline-light btn-sm" style="border-color: var(--border-color); color: var(--gold-color);">Exportar Base</button>
+        </div>
+    </header>
+
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-value">R$ 12.450</span>
+            <span class="stat-label">MRR (Receita Mensal)</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value">84</span>
+            <span class="stat-label">Prestadores Ativos</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value">12.4k</span>
+            <span class="stat-label">Clientes Finais Gerenciados</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-value">92%</span>
+            <span class="stat-label">Taxa de Adimplência</span>
+        </div>
+    </div>
+
+    <div class="main-container">
+        <h3 class="mb-4" style="font-family: 'Cormorant Garamond', serif; color: var(--gold-color);">Gestão de Prestadores (SaaS)</h3>
+        
+        <div class="data-table-container shadow">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>PRESTADOR / EMPRESA</th>
+                        <th>PLANO</th>
+                        <th>DESDE</th>
+                        <th>LTV (MESES)</th>
+                        <th>FINANCEIRO</th>
+                        <th>STATUS PGTO</th>
+                        <th>AÇÕES</th>
+                        <th>CONTATO</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Exemplo Prestador Fiel -->
+                    <tr>
+                        <td>
+                            <strong>Lavanderia Limpa</strong> <span class="client-status status-fiel">FIEL</span><br>
+                            <small class="text-sec">João Silva | ID: PS-001</small>
+                        </td>
+                        <td><span class="badge-plan plan-premium">PREMIUM</span></td>
+                        <td>10/01/2026</td>
+                        <td>5 meses <small class="text-success">(100% Adimplente)</small></td>
+                        <td>
+                            R$ 299,00<br>
+                            <small class="text-sec">Desc: R$ 0,00</small>
+                        </td>
+                        <td><span class="text-success"><i class="bi bi-check-circle-fill"></i> EM DIA</span></td>
+                        <td>
+                            <select class="form-select form-select-sm bg-dark text-light border-secondary" style="font-size: 0.7rem; width: 120px;">
+                                <option>Gerenciar Plano</option>
+                                <option>Mudar para Básico</option>
+                                <option>Mudar para Free</option>
+                                <option>Bloquear Acesso</option>
+                            </select>
+                        </td>
+                        <td>
+                            <a href="#" class="btn-whatsapp-admin" title="Ofertar Upgrade"><i class="bi bi-whatsapp"></i></a>
+                        </td>
+                    </tr>
+                    <!-- Exemplo Prestador Novo / Trial -->
+                    <tr>
+                        <td>
+                            <strong>Studio Fit 20</strong> <span class="client-status status-novo">NOVO</span><br>
+                            <small class="text-sec">Carla Mendes | ID: PS-084</small>
+                        </td>
+                        <td><span class="badge-plan plan-premium">TRIAL PREMIUM</span></td>
+                        <td>18/06/2026</td>
+                        <td>0 meses <small class="text-info">(Primeiro Acesso)</small></td>
+                        <td>
+                            R$ 0,00<br>
+                            <small class="text-sec">Venc: 21/06</small>
+                        </td>
+                        <td><span class="text-info"><i class="bi bi-clock"></i> EM TRIAL</span></td>
+                        <td>
+                            <button class="btn btn-outline-warning btn-sm" style="font-size: 0.7rem;">LIBERAR ACESSO</button>
+                        </td>
+                        <td>
+                            <a href="#" class="btn-whatsapp-admin" title="Boas Vindas"><i class="bi bi-whatsapp"></i></a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <footer class="text-center py-5">
+        <p style="color: var(--text-sec); font-size: 0.8rem;">
+            Anota AI - Inteligência de Negócio | Desenvolvido por <a href="https://www.eumaisempresa.com.br" target="_blank" style="color: var(--gold-color); text-decoration: none;">Grupo EU+ Negócio</a>
+        </p>
+    </footer>
+
+</body>
+</html>
