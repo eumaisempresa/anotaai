@@ -13,279 +13,99 @@
             --gold-color: #C4A265;
             --text-main: #EEF0F2;
             --text-sec: #A0B1C1;
-            --card-bg: rgba(255, 255, 255, 0.03);
-            --border-color: rgba(196, 162, 101, 0.2);
         }
 
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'DM Sans', sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        /* Sidebar / Header */
+        body { background-color: var(--bg-color); color: var(--text-main); font-family: 'DM Sans', sans-serif; }
+        
         .top-bar {
-            background-color: rgba(6, 14, 24, 0.95);
-            border-bottom: 1px solid var(--border-color);
-            padding: 15px 30px;
+            padding: 15px 40px;
+            border-bottom: 1px solid rgba(196, 162, 101, 0.2);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(10px);
         }
 
-        .brand-logo {
+        .client-highlight {
             font-family: 'Cormorant Garamond', serif;
-            font-size: 1.5rem;
+            font-size: 2rem;
             color: var(--text-main);
-            text-decoration: none;
         }
+        .client-highlight span { color: var(--gold-color); font-weight: bold; }
 
-        .brand-plus { color: var(--gold-color); font-weight: bold; }
-
-        /* Trial Alert */
-        .trial-banner {
-            background: linear-gradient(90deg, rgba(196, 162, 101, 0.2), rgba(6, 14, 24, 0.2));
-            border: 1px solid var(--gold-color);
-            color: var(--gold-color);
-            padding: 8px 20px;
-            border-radius: 50px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-
-        /* Dashboard KPIs */
-        .kpi-row {
-            padding: 20px 30px;
+        .kpi-bar {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            padding: 20px 40px;
         }
 
-        .kpi-card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 15px;
-            border-radius: 12px;
+        .kpi-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(196, 162, 101, 0.1);
+            padding: 10px;
+            border-radius: 8px;
             text-align: center;
         }
 
-        .kpi-value {
-            font-family: 'Cormorant Garamond', serif;
-            font-size: 1.8rem;
-            color: var(--gold-color);
-            display: block;
-        }
+        .kpi-val { display: block; font-size: 1.4rem; color: var(--gold-color); font-family: 'Cormorant Garamond', serif; }
+        .kpi-lab { font-size: 0.65rem; color: var(--text-sec); text-transform: uppercase; }
 
-        .kpi-label {
-            font-size: 0.75rem;
-            color: var(--text-sec);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Main Content */
-        .content-area { padding: 0 30px 30px; }
-
-        .table-container {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 15px;
-            overflow: hidden;
-        }
-
-        .table {
-            color: var(--text-main);
-            margin-bottom: 0;
-            font-size: 0.9rem;
-        }
-
-        .table thead th {
-            background-color: rgba(196, 162, 101, 0.05);
-            color: var(--gold-color);
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-            border-bottom: 1px solid var(--border-color);
-            padding: 15px;
-        }
-
-        .table tbody td {
-            padding: 12px 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-            vertical-align: middle;
-        }
-
-        /* Buttons & Actions */
-        .btn-action {
-            background-color: transparent;
-            border: 1px solid var(--gold-color);
-            color: var(--gold-color);
-            font-size: 0.75rem;
-            padding: 5px 12px;
-            border-radius: 6px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-action:hover {
-            background-color: var(--gold-color);
-            color: var(--bg-color);
-        }
-
-        .btn-whatsapp {
-            color: #25D366;
-            font-size: 1.2rem;
-            text-decoration: none;
-            transition: transform 0.2s;
-        }
-
-        .btn-whatsapp:hover { transform: scale(1.2); }
-
-        .badge-status {
-            font-size: 0.7rem;
-            padding: 4px 8px;
-            border-radius: 4px;
-        }
-
-        .status-ativo { background-color: rgba(37, 211, 102, 0.1); color: #25D366; }
-        .status-inadimplente { background-color: rgba(255, 71, 87, 0.1); color: #ff4757; }
-
-        /* Search & Filter */
-        .search-bar {
-            background-color: rgba(255, 255, 255, 0.05);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            border-radius: 8px;
+        .btn-whats-suporte {
+            background-color: #25D366;
+            color: white;
+            border: none;
             padding: 8px 15px;
-            width: 300px;
-            font-size: 0.85rem;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            text-decoration: none;
         }
 
-        .search-bar:focus {
-            outline: none;
-            border-color: var(--gold-color);
-        }
+        .table-container { padding: 0 40px 40px; }
+        .table { color: var(--text-main); font-size: 0.85rem; }
+        .table thead th { color: var(--gold-color); font-family: 'Cormorant Garamond', serif; }
     </style>
 </head>
 <body>
-
     <div class="top-bar">
-        <a href="#" class="brand-logo">EU<span class="brand-plus">+</span> NEGÓCIO | <small style="font-size: 0.9rem;">Anota AI</small></a>
-        
-        <div class="d-flex align-items-center gap-3">
-            <div class="trial-banner">
-                <i class="bi bi-clock-history"></i> TRIAL PREMIUM: <strong>2 DIAS RESTANTES</strong>
-            </div>
-            <button class="btn-action" style="background-color: var(--gold-color); color: var(--bg-color); font-weight: bold;">UPGRADE AGORA</button>
-            <div class="ms-3 text-end">
-                <small class="d-block" style="color: var(--gold-color); font-size: 0.7rem;">LAVANDERIA LIMPA</small>
-                <small style="color: var(--text-sec); font-size: 0.6rem;">ID: PS-2026061901</small>
-            </div>
+        <div class="client-highlight" id="nomeClienteHeader">CARREGANDO<span>+</span></div>
+        <div class="d-flex gap-3 align-items-center">
+            <a href="https://wa.me/5527998131806" target="_blank" class="btn-whats-suporte">
+                <i class="bi bi-whatsapp"></i> Fale Conosco
+            </a>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;">EU<span>+</span> NEGÓCIO</div>
         </div>
     </div>
 
-    <div class="kpi-row">
-        <div class="kpi-card">
-            <span class="kpi-value">124</span>
-            <span class="kpi-label">Total de Itens</span>
-        </div>
-        <div class="kpi-card">
-            <span class="kpi-value">42</span>
-            <span class="kpi-label">Em Utilização</span>
-        </div>
-        <div class="kpi-card">
-            <span class="kpi-value">18</span>
-            <span class="kpi-label">Disponíveis</span>
-        </div>
-        <div class="kpi-card">
-            <span class="kpi-value">R$ 4.250</span>
-            <span class="kpi-label">Saldo em Aberto</span>
-        </div>
+    <div class="kpi-bar">
+        <div class="kpi-item"><span class="kpi-val" id="kpiTotal">0</span><span class="kpi-lab">Clientes</span></div>
+        <div class="kpi-item"><span class="kpi-val" id="kpiAtivos">0</span><span class="kpi-lab">Ativos</span></div>
+        <div class="kpi-item"><span class="kpi-val" id="kpiInativos">0</span><span class="kpi-lab">Inativos</span></div>
+        <div class="kpi-item"><span class="kpi-val" id="kpiUtilizando">0</span><span class="kpi-lab">Em Uso</span></div>
+        <div class="kpi-item"><span class="kpi-val" id="kpiDisponivel">0</span><span class="kpi-lab">Disponível</span></div>
+        <div class="kpi-item"><span class="kpi-val" id="kpiSaldo">0</span><span class="kpi-lab">Saldo Total</span></div>
     </div>
 
-    <div class="content-area">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h3 style="margin: 0;">Gestão de Clientes</h3>
-            <div class="d-flex gap-2">
-                <input type="text" class="search-bar" placeholder="Buscar cliente ou código...">
-                <button class="btn-action"><i class="bi bi-plus-lg"></i> Novo Cliente</button>
-            </div>
-        </div>
-
-        <div class="table-container shadow">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>CÓD</th>
-                        <th>CLIENTE</th>
-                        <th>PLANO / QTD</th>
-                        <th>SALDO</th>
-                        <th>VALIDADE</th>
-                        <th>STATUS</th>
-                        <th>AÇÕES</th>
-                        <th>WHATSAPP</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <!-- Exemplo Cliente Adimplente -->
-                    <tr>
-                        <td>#101</td>
-                        <td>
-                            <strong>Ricardo Almeida</strong><br>
-                            <small class="text-sec">(11) 98877-6655</small>
-                        </td>
-                        <td>Mensal 30p <small class="text-sec">/ 30</small></td>
-                        <td style="color: var(--gold-color); font-weight: bold;">12 itens</td>
-                        <td>15/07/2026</td>
-                        <td><span class="badge-status status-ativo">ATIVO</span></td>
-                        <td>
-                            <button class="btn-action btn-sm">LANÇAR USO</button>
-                        </td>
-                        <td>
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn-whatsapp" title="Aviso de Disponibilidade"><i class="bi bi-check2-circle"></i></a>
-                                <a href="#" class="btn-whatsapp" title="Cobrança"><i class="bi bi-cash-stack" style="color: var(--gold-color);"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                    <!-- Exemplo Cliente Inadimplente (Saldo bloqueado visualmente) -->
-                    <tr>
-                        <td>#102</td>
-                        <td>
-                            <strong>Maria Souza</strong><br>
-                            <small class="text-sec">(11) 97766-5544</small>
-                        </td>
-                        <td>Básico 10p <small class="text-sec">/ 10</small></td>
-                        <td class="text-danger" style="font-weight: bold;">0 (BLOQUEADO)</td>
-                        <td class="text-danger">01/06/2026</td>
-                        <td><span class="badge-status status-inadimplente">INADIMPLENTE</span></td>
-                        <td>
-                            <button class="btn-action btn-sm" disabled>LANÇAR USO</button>
-                        </td>
-                        <td>
-                            <div class="d-flex gap-2">
-                                <a href="#" class="btn-whatsapp" title="Cobrança de Renovação"><i class="bi bi-exclamation-triangle-fill" style="color: #ff4757;"></i></a>
-                            </div>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="mt-3 text-end">
-            <small style="color: var(--text-sec);">Visualizando 50 de 124 clientes (Limite do Plano Trial Premium)</small>
-        </div>
+    <div class="table-container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>CLIENTE</th>
+                    <th>PLANO / VALOR</th>
+                    <th>DESC.</th>
+                    <th>VENCIMENTO</th>
+                    <th>SALDO</th>
+                    <th>STATUS</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody id="listaClientes">
+                <!-- Dados Reais Carregados via API -->
+            </tbody>
+        </table>
     </div>
 
-    <div class="text-center py-4" style="border-top: 1px solid var(--border-color); margin-top: 40px;">
-        <small style="color: var(--text-sec);">
-            © 2026 <a href="https://www.eumaisempresa.com.br" target="_blank" style="color: var(--gold-color); text-decoration: none;">Grupo EU+ Negócio</a> | Operando com Inteligência.
-        </small>
-    </div>
-
+    <script>
+        // Lógica de carregamento real será integrada aqui usando o SCRIPT_URL
+    </script>
 </body>
 </html>
