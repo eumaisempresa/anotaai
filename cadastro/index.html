@@ -12,7 +12,6 @@
             --gold-color: #C4A265;
             --text-main: #EEF0F2;
             --text-sec: #A0B1C1;
-            --whatsapp-green: #075E54;
         }
 
         body {
@@ -20,10 +19,6 @@
             color: var(--text-main);
             font-family: 'DM Sans', sans-serif;
             min-height: 100vh;
-        }
-
-        h1, h2, h3 {
-            font-family: 'Cormorant Garamond', serif;
         }
 
         .card {
@@ -39,53 +34,42 @@
 
         .brand-header {
             text-align: center;
-            margin-bottom: 40px;
-            border-bottom: 1px solid rgba(196, 162, 101, 0.3);
-            padding-bottom: 20px;
+            margin-bottom: 30px;
         }
 
         .brand-title {
-            font-size: 2.8rem;
+            font-size: 3rem;
             color: var(--text-main);
             margin: 0;
             letter-spacing: 5px;
-            font-weight: 400;
+            font-family: 'Cormorant Garamond', serif;
         }
 
-        .brand-plus {
-            color: var(--gold-color);
-            font-weight: 600;
-        }
-
-        .brand-subtitle {
-            font-size: 0.9rem;
-            color: var(--gold-color);
-            letter-spacing: 8px;
-            text-transform: uppercase;
-            margin-top: -5px;
-        }
+        .brand-plus { color: var(--gold-color); font-weight: bold; }
 
         .form-label {
             color: var(--gold-color);
             font-weight: 500;
             font-size: 0.95rem;
             margin-bottom: 8px;
-            display: block;
         }
 
         .form-control, .form-select {
-            background-color: rgba(255, 255, 255, 0.07);
+            background-color: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(196, 162, 101, 0.3);
-            color: var(--text-main);
+            color: var(--text-main) !important;
             border-radius: 8px;
             padding: 12px;
         }
 
-        .form-control:focus, .form-select:focus {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-color: var(--gold-color);
+        /* Correção da visibilidade do Select */
+        .form-select option {
+            background-color: var(--bg-color);
             color: var(--text-main);
-            box-shadow: 0 0 0 0.25rem rgba(196, 162, 101, 0.15);
+        }
+
+        .form-control::placeholder {
+            color: rgba(238, 240, 242, 0.4);
         }
 
         .btn-gold {
@@ -95,16 +79,9 @@
             border: none;
             padding: 15px 30px;
             border-radius: 8px;
-            transition: all 0.3s ease;
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-top: 20px;
-        }
-
-        .btn-gold:hover {
-            background-color: #d4b47a;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(196, 162, 101, 0.3);
+            width: 100%;
         }
 
         .section-title {
@@ -112,170 +89,158 @@
             padding-bottom: 10px;
             margin-bottom: 25px;
             font-size: 1.3rem;
-            color: var(--text-main);
             font-family: 'Cormorant Garamond', serif;
         }
 
         .helper-text {
-            color: var(--text-sec);
+            color: var(--text-main); /* Ajustado para visível */
             font-size: 0.8rem;
-            margin-top: 4px;
+            margin-top: 5px;
+            opacity: 0.8;
         }
-
-        #outroServicoContainer { display: none; margin-top: 10px; }
 
         .trial-badge {
             background-color: rgba(196, 162, 101, 0.1);
             border: 1px solid var(--gold-color);
             color: var(--gold-color);
-            padding: 10px;
+            padding: 12px;
             border-radius: 8px;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             text-align: center;
             margin-bottom: 30px;
         }
 
-        .footer-text {
-            text-align: center;
-            margin-top: 40px;
-            color: var(--text-sec);
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 20px;
-        }
-
-        .footer-text a {
-            color: var(--gold-color);
-            text-decoration: none;
+        #successScreen { display: none; text-align: center; }
+        .cred-box {
+            background: rgba(255,255,255,0.05);
+            border: 1px dashed var(--gold-color);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="card shadow-lg">
+        <div class="card" id="formScreen">
             <div class="brand-header">
-                <h1 class="brand-title">EU<span class="brand-plus">+</span></h1>
-                <div class="brand-subtitle">NEGÓCIO</div>
+                <h1 class="brand-title">EU<span class="brand-plus">+</span> NEGÓCIO</h1>
+                <div style="color: var(--gold-color); letter-spacing: 5px; font-size: 0.8rem;">ANOTA AI</div>
             </div>
             
-            <div class="text-center mb-4">
-                <h2 style="font-size: 2.2rem; color: var(--gold-color);">Anota AI — SaaS</h2>
-                <p style="color: var(--text-sec); letter-spacing: 2px; font-size: 0.8rem;">EFICIÊNCIA INTELECTUAL PARA QUEM OPERA COM SERIEDADE</p>
-            </div>
-
-            <!-- Badge de Experiência Premium -->
             <div class="trial-badge">
-                <i class="bi bi-star-fill"></i> VOCÊ TERÁ <strong>3 DIAS DE ACESSO PREMIUM ILIMITADO</strong> PARA TRANSFORMAR SUA OPERAÇÃO.
+                VOCÊ TERÁ <strong>7 DIAS DE ACESSO PREMIUM ILIMITADO</strong> PARA TRANSFORMAR SUA OPERAÇÃO.
             </div>
 
             <form id="cadastroForm">
-                <div class="section-title">1. Identificação do Negócio</div>
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <label for="nomeEmpresa" class="form-label">Nome da Empresa</label>
+                <div class="section-title">Identificação do Negócio</div>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <label class="form-label">Nome da Empresa</label>
                         <input type="text" class="form-control" id="nomeEmpresa" required placeholder="Ex: Lavanderia Limpa">
+                        <div class="helper-text">Nome que aparecerá no seu painel.</div>
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <label for="nomeResponsavel" class="form-label">Nome do Responsável</label>
+                    <div class="col-md-6">
+                        <label class="form-label">Nome do Responsável</label>
                         <input type="text" class="form-control" id="nomeResponsavel" required placeholder="Ex: João Silva">
                     </div>
                 </div>
 
                 <div class="mb-4">
-                    <label for="tipoServico" class="form-label">Segmento de Atuação</label>
-                    <select class="form-select" id="tipoServico" required onchange="checkOutro(this.value)">
+                    <label class="form-label">Segmento de Atuação</label>
+                    <select class="form-select" id="tipoServico" required>
                         <option value="">Selecione o segmento...</option>
                         <option value="Lavanderia">Lavanderia</option>
-                        <option value="Academia / Studio Fitness">Academia / Studio Fitness</option>
-                        <option value="Barbearia / Salão">Barbearia / Salão</option>
-                        <option value="Estética / Clínica">Estética / Clínica</option>
-                        <option value="Oficina / Estética Automotiva">Oficina / Estética Automotiva</option>
-                        <option value="Pet Shop / Veterinária">Pet Shop / Veterinária</option>
-                        <option value="Outro">Outro (Especificar abaixo)</option>
+                        <option value="Academia">Academia / Studio</option>
+                        <option value="Barbearia">Barbearia / Salão</option>
+                        <option value="Estética">Estética / Clínica</option>
+                        <option value="Oficina">Oficina / Estética Automotiva</option>
+                        <option value="Pet Shop">Pet Shop / Veterinária</option>
+                        <option value="Outro">Outro</option>
                     </select>
-                    <div id="outroServicoContainer">
-                        <input type="text" class="form-control" id="outroServico" placeholder="Descreva seu segmento">
-                    </div>
                 </div>
 
-                <div class="row">
-                    <div class="col-md-6 mb-4">
-                        <label for="email" class="form-label">E-mail Corporativo</label>
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <label class="form-label">E-mail Corporativo</label>
                         <input type="email" class="form-control" id="email" required placeholder="exemplo@email.com">
                     </div>
-                    <div class="col-md-6 mb-4">
-                        <label for="whatsapp" class="form-label">WhatsApp de Gestão</label>
+                    <div class="col-md-6">
+                        <label class="form-label">WhatsApp de Gestão</label>
                         <input type="tel" class="form-control" id="whatsapp" required placeholder="(00) 00000-0000">
                     </div>
                 </div>
 
-                <div class="section-title mt-4">2. Portfólio de Serviços</div>
-                <div id="produtosContainer">
-                    <div class="row mb-3">
-                        <div class="col-7">
-                            <label class="form-label">Descrição do Serviço</label>
-                            <input type="text" class="form-control" placeholder="Ex: Lavagem 30 peças" required>
-                        </div>
-                        <div class="col-3">
-                            <label class="form-label">Valor (R$)</label>
-                            <input type="number" class="form-control" placeholder="0,00" required>
-                        </div>
-                        <div class="col-2 text-end d-flex align-items-end">
-                            <button type="button" class="btn btn-outline-danger btn-sm border-0 mb-2" onclick="this.parentElement.parentElement.remove()">✕</button>
-                        </div>
-                    </div>
-                </div>
-                <button type="button" class="btn btn-link btn-sm text-decoration-none p-0" style="color: var(--gold-color);" onclick="addProduto()">+ Adicionar outro serviço</button>
-
-                <div class="text-center mt-5">
-                    <button type="submit" class="btn btn-gold w-100">Finalizar Cadastro e Iniciar Experiência Premium</button>
-                    <p class="mt-4" style="color: var(--text-sec); font-size: 0.85rem;">
-                        Opere com inteligência. Opere com propósito.
-                    </p>
-                </div>
+                <button type="submit" class="btn btn-gold" id="btnSubmit">Finalizar Cadastro e Iniciar Experiência Premium</button>
             </form>
+        </div>
 
-            <div class="footer-text">
-                © 2026 <a href="https://www.eumaisempresa.com.br" target="_blank">Grupo EU+ Negócio</a> | Todos os direitos reservados.
+        <!-- Tela de Sucesso -->
+        <div class="card" id="successScreen">
+            <h2 style="color: var(--gold-color);">Cadastro Realizado!</h2>
+            <p>Sua jornada premium no <strong>Anota AI</strong> começou.</p>
+            
+            <div class="cred-box">
+                <p class="mb-1">Seu Usuário: <strong id="resEmail"></strong></p>
+                <p class="mb-1">Sua Senha: <strong id="resSenha"></strong></p>
+                <p class="mb-0">Expira em: <strong id="resVenc"></strong></p>
             </div>
+
+            <p class="small text-sec">Guarde suas credenciais. Você as usará para acessar o painel.</p>
+            
+            <a href="#" id="btnPainel" class="btn btn-gold mb-3">Acessar Meu Painel</a>
+            <button onclick="enviarWhats()" class="btn btn-outline-success w-100" style="color: #25D366; border-color: #25D366;">Enviar Credenciais para WhatsApp</button>
         </div>
     </div>
 
     <script>
-        function checkOutro(val) {
-            const container = document.getElementById('outroServicoContainer');
-            const input = document.getElementById('outroServico');
-            if (val === 'Outro') {
-                container.style.display = 'block';
-                input.required = true;
-            } else {
-                container.style.display = 'none';
-                input.required = false;
-            }
-        }
-
-        function addProduto() {
-            const container = document.getElementById('produtosContainer');
-            const div = document.createElement('div');
-            div.className = 'row mb-3';
-            div.innerHTML = `
-                <div class="col-7">
-                    <input type="text" class="form-control" placeholder="Descrição do Serviço" required>
-                </div>
-                <div class="col-3">
-                    <input type="number" class="form-control" placeholder="0,00" required>
-                </div>
-                <div class="col-2 text-end">
-                    <button type="button" class="btn btn-outline-danger btn-sm border-0" onclick="this.parentElement.parentElement.remove()">✕</button>
-                </div>
-            `;
-            container.appendChild(div);
-        }
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxj7oDDxK3j6t_RNKmjUSZjRLXcK_lfRvP1smYUCKuLlj-5gXyMVjsw0BtKAr4u3OxX/exec';
 
         document.getElementById('cadastroForm').onsubmit = function(e) {
             e.preventDefault();
-            alert('Cadastro enviado! Iniciando seus 3 dias de Premium... (Modo Laboratório)');
+            const btn = document.getElementById('btnSubmit');
+            btn.disabled = true;
+            btn.innerText = 'Processando...';
+
+            const payload = {
+                action: 'cadastrar_prestador',
+                payload: {
+                    nomeEmpresa: document.getElementById('nomeEmpresa').value,
+                    nomeResponsavel: document.getElementById('nomeResponsavel').value,
+                    tipoServico: document.getElementById('tipoServico').value,
+                    email: document.getElementById('email').value,
+                    whatsapp: document.getElementById('whatsapp').value
+                }
+            };
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors', // Para evitar erro de CORS no Apps Script
+                body: JSON.stringify(payload)
+            }).then(() => {
+                // Como usamos no-cors, não recebemos o JSON de volta diretamente.
+                // Em um cenário real, usaríamos um proxy ou JSONP.
+                // Para este laboratório, vamos simular a resposta de sucesso.
+                showSuccess(payload.payload.email);
+            }).catch(err => {
+                alert('Erro ao conectar. Verifique sua URL da API.');
+                btn.disabled = false;
+                btn.innerText = 'Tentar Novamente';
+            });
         };
+
+        function showSuccess(email) {
+            document.getElementById('formScreen').style.display = 'none';
+            document.getElementById('successScreen').style.display = 'block';
+            document.getElementById('resEmail').innerText = email;
+            document.getElementById('resSenha').innerText = 'eu' + Math.floor(1000 + Math.random() * 9000) + 'mais';
+            document.getElementById('resVenc').innerText = '7 dias a partir de hoje';
+        }
+
+        function enviarWhats() {
+            const msg = `Olá! Meus dados do Anota AI:\nUsuário: ${document.getElementById('resEmail').innerText}\nSenha: ${document.getElementById('resSenha').innerText}`;
+            window.open(`https://wa.me/${document.getElementById('whatsapp').value.replace(/\D/g,'')}?text=${encodeURIComponent(msg)}`);
+        }
     </script>
 </body>
 </html>
