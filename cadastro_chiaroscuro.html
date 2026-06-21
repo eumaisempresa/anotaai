@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anota Aí - Iniciar Experiência Premium | EU+ NEGÓCIO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #060E18;
+            --gold-color: #C4A265;
+            --text-main: #EEF0F2;
+            --text-sec: #A0B1C1;
+            --whatsapp-green: #075E54;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(196, 162, 101, 0.2);
+            border-radius: 15px;
+            padding: 40px;
+            backdrop-filter: blur(10px);
+            width: 100%;
+            max-width: 800px;
+            margin: 40px auto;
+        }
+
+        .brand-header {
+            text-align: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(196, 162, 101, 0.3);
+            padding-bottom: 20px;
+        }
+
+        .brand-title {
+            font-size: 2.8rem;
+            color: var(--text-main);
+            margin: 0;
+            letter-spacing: 5px;
+            font-weight: 400;
+        }
+
+        .brand-plus {
+            color: var(--gold-color);
+            font-weight: 600;
+        }
+
+        .brand-subtitle {
+            font-size: 0.9rem;
+            color: var(--gold-color);
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-top: -5px;
+        }
+
+        .form-label {
+            color: var(--gold-color);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .form-control, .form-select {
+            background-color: rgba(255, 255, 255, 0.07);
+            border: 1px solid rgba(196, 162, 101, 0.3);
+            color: var(--text-main);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .form-control:focus, .form-select:focus {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-color: var(--gold-color);
+            color: var(--text-main);
+            box-shadow: 0 0 0 0.25rem rgba(196, 162, 101, 0.15);
+        }
+
+        .btn-gold {
+            background-color: var(--gold-color);
+            color: var(--bg-color);
+            font-weight: 600;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+        }
+
+        .btn-gold:hover {
+            background-color: #d4b47a;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(196, 162, 101, 0.3);
+        }
+
+        .section-title {
+            border-bottom: 1px solid rgba(196, 162, 101, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            color: var(--text-main);
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        .helper-text {
+            color: var(--text-sec);
+            font-size: 0.8rem;
+            margin-top: 4px;
+        }
+
+        #outroServicoContainer { display: none; margin-top: 10px; }
+
+        .trial-badge {
+            background-color: rgba(196, 162, 101, 0.1);
+            border: 1px solid var(--gold-color);
+            color: var(--gold-color);
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 0.85rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 40px;
+            color: var(--text-sec);
+            font-size: 0.85rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 20px;
+        }
+
+        .footer-text a {
+            color: var(--gold-color);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card shadow-lg">
+            <div class="brand-header">
+                <h1 class="brand-title">EU<span class="brand-plus">+</span></h1>
+                <div class="brand-subtitle">NEGÓCIO</div>
+            </div>
+            
+            <div class="text-center mb-4">
+                <h2 style="font-size: 2.2rem; color: var(--gold-color);">Anota AI — SaaS</h2>
+                <p style="color: var(--text-sec); letter-spacing: 2px; font-size: 0.8rem;">EFICIÊNCIA INTELECTUAL PARA QUEM OPERA COM SERIEDADE</p>
+            </div>
+
+            <!-- Badge de Experiência Premium -->
+            <div class="trial-badge">
+                <i class="bi bi-star-fill"></i> VOCÊ TERÁ <strong>3 DIAS DE ACESSO PREMIUM ILIMITADO</strong> PARA TRANSFORMAR SUA OPERAÇÃO.
+            </div>
+
+            <form id="cadastroForm">
+                <div class="section-title">1. Identificação do Negócio</div>
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <label for="nomeEmpresa" class="form-label">Nome da Empresa</label>
+                        <input type="text" class="form-control" id="nomeEmpresa" required placeholder="Ex: Lavanderia Limpa">
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <label for="nomeResponsavel" class="form-label">Nome do Responsável</label>
+                        <input type="text" class="form-control" id="nomeResponsavel" required placeholder="Ex: João Silva">
+                    </div>
+                </div>
+
+                <div class="mb-4">
+                    <label for="tipoServico" class="form-label">Segmento de Atuação</label>
+                    <select class="form-select" id="tipoServico" required onchange="checkOutro(this.value)">
+                        <option value="">Selecione o segmento...</option>
+                        <option value="Lavanderia">Lavanderia</option>
+                        <option value="Academia / Studio Fitness">Academia / Studio Fitness</option>
+                        <option value="Barbearia / Salão">Barbearia / Salão</option>
+                        <option value="Estética / Clínica">Estética / Clínica</option>
+                        <option value="Oficina / Estética Automotiva">Oficina / Estética Automotiva</option>
+                        <option value="Pet Shop / Veterinária">Pet Shop / Veterinária</option>
+                        <option value="Outro">Outro (Especificar abaixo)</option>
+                    </select>
+                    <div id="outroServicoContainer">
+                        <input type="text" class="form-control" id="outroServico" placeholder="Descreva seu segmento">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-4">
+                        <label for="email" class="form-label">E-mail Corporativo</label>
+                        <input type="email" class="form-control" id="email" required placeholder="exemplo@email.com">
+                    </div>
+                    <div class="col-md-6 mb-4">
+                        <label for="whatsapp" class="form-label">WhatsApp de Gestão</label>
+                        <input type="tel" class="form-control" id="whatsapp" required placeholder="(00) 00000-0000">
+                    </div>
+                </div>
+
+                <div class="section-title mt-4">2. Portfólio de Serviços</div>
+                <div id="produtosContainer">
+                    <div class="row mb-3">
+                        <div class="col-7">
+                            <label class="form-label">Descrição do Serviço</label>
+                            <input type="text" class="form-control" placeholder="Ex: Lavagem 30 peças" required>
+                        </div>
+                        <div class="col-3">
+                            <label class="form-label">Valor (R$)</label>
+                            <input type="number" class="form-control" placeholder="0,00" required>
+                        </div>
+                        <div class="col-2 text-end d-flex align-items-end">
+                            <button type="button" class="btn btn-outline-danger btn-sm border-0 mb-2" onclick="this.parentElement.parentElement.remove()">✕</button>
+                        </div>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-link btn-sm text-decoration-none p-0" style="color: var(--gold-color);" onclick="addProduto()">+ Adicionar outro serviço</button>
+
+                <div class="text-center mt-5">
+                    <button type="submit" class="btn btn-gold w-100">Finalizar Cadastro e Iniciar Experiência Premium</button>
+                    <p class="mt-4" style="color: var(--text-sec); font-size: 0.85rem;">
+                        Opere com inteligência. Opere com propósito.
+                    </p>
+                </div>
+            </form>
+
+            <div class="footer-text">
+                © 2026 <a href="https://www.eumaisempresa.com.br" target="_blank">Grupo EU+ Negócio</a> | Todos os direitos reservados.
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function checkOutro(val) {
+            const container = document.getElementById('outroServicoContainer');
+            const input = document.getElementById('outroServico');
+            if (val === 'Outro') {
+                container.style.display = 'block';
+                input.required = true;
+            } else {
+                container.style.display = 'none';
+                input.required = false;
+            }
+        }
+
+        function addProduto() {
+            const container = document.getElementById('produtosContainer');
+            const div = document.createElement('div');
+            div.className = 'row mb-3';
+            div.innerHTML = `
+                <div class="col-7">
+                    <input type="text" class="form-control" placeholder="Descrição do Serviço" required>
+                </div>
+                <div class="col-3">
+                    <input type="number" class="form-control" placeholder="0,00" required>
+                </div>
+                <div class="col-2 text-end">
+                    <button type="button" class="btn btn-outline-danger btn-sm border-0" onclick="this.parentElement.parentElement.remove()">✕</button>
+                </div>
+            `;
+            container.appendChild(div);
+        }
+
+        document.getElementById('cadastroForm').onsubmit = function(e) {
+            e.preventDefault();
+            alert('Cadastro enviado! Iniciando seus 3 dias de Premium... (Modo Laboratório)');
+        };
+    </script>
+</body>
+</html>
