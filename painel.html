@@ -5,7 +5,117 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Painel de Gestão - Anota AI | EU+ NEGÓCIO</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapi<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Gestão - Anota AI | EU+ NEGÓCIO</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        :root {
+            --bg-color: #060E18;
+            --gold-color: #C4A265;
+            --text-main: #EEF0F2;
+            --text-sec: #A0B1C1;
+        }
+
+        body { background-color: var(--bg-color); color: var(--text-main); font-family: 'DM Sans', sans-serif; }
+        
+        .top-bar {
+            padding: 15px 40px;
+            border-bottom: 1px solid rgba(196, 162, 101, 0.2);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .client-highlight {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2rem;
+            color: var(--text-main);
+        }
+        .client-highlight span { color: var(--gold-color); font-weight: bold; }
+
+        .kpi-bar {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 15px;
+            padding: 20px 40px;
+        }
+
+        .kpi-item {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(196, 162, 101, 0.1);
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .kpi-val { display: block; font-size: 1.4rem; color: var(--gold-color); font-family: 'Cormorant Garamond', serif; }
+        .kpi-lab { font-size: 0.65rem; color: var(--text-sec); text-transform: uppercase; }
+
+        .btn-whats-suporte {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            text-decoration: none;
+        }
+
+        .table-container { padding: 0 40px 40px; }
+        .table { color: var(--text-main); font-size: 0.85rem; }
+        .table thead th { color: var(--gold-color); font-family: 'Cormorant Garamond', serif; }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div class="client-highlight" id="nomeClienteHeader">CARREGANDO<span>+</span></div>
+        <div class="d-flex gap-3 align-items-center">
+            <a href="https://wa.me/5527998131806" target="_blank" class="btn-whats-suporte">
+                <i class="bi bi-whatsapp"></i> Fale Conosco
+            </a>
+            <div style="font-family: 'Cormorant Garamond', serif; font-size: 1.2rem;">EU<span>+</span> NEGÓCIO</div>
+        </div>
+    </div>
+
+    <div class="kpi-bar">
+        <div class="kpi-item"><span class="kpi-val" id="kpiTotal">0</span><span class="kpi-lab">Clientes</span></div>
+        <div class="kpi-item"><span class="kpi-val" id="kpiAtivos">0</span><span class="kpi-lab">Ativos</span></div>
+        <div class="kpi-item"><span class="kpi-val" id="kpiInativos">0</span><span class="kpi-lab">Inativos</span></div>
+        <div class="kpi-item"><span class="kpi-val" id="kpiUtilizando">0</span><span class="kpi-lab">Em Uso</span></div>
+        <div class="kpi-item"><span class="kpi-val" id="kpiDisponivel">0</span><span class="kpi-lab">Disponível</span></div>
+        <div class="kpi-item"><span class="kpi-val" id="kpiSaldo">0</span><span class="kpi-lab">Saldo Total</span></div>
+    </div>
+
+    <div class="table-container">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>CLIENTE</th>
+                    <th>PLANO / VALOR</th>
+                    <th>DESC.</th>
+                    <th>VENCIMENTO</th>
+                    <th>SALDO</th>
+                    <th>STATUS</th>
+                    <th>AÇÕES</th>
+                </tr>
+            </thead>
+            <tbody id="listaClientes">
+                <!-- Dados Reais Carregados via API -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Lógica de carregamento real será integrada aqui usando o SCRIPT_URL
+    </script>
+</body>
+</html>s.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
     <style>
         :root {
