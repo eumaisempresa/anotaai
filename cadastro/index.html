@@ -3,287 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anota Aí - Iniciar Experiência Premium | EU+ NEGÓCIO</title>
+    <title>Anota Aí - Cadastro Premium | EU+ NEGÓCIO</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --bg-color: #060E18;
-            --gold-color: #C4A265;
-            --text-main: #EEF0F2;
-            --text-sec: #A0B1C1;
-            --input-bg: rgba(255, 255, 255, 0.05);
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'DM Sans', sans-serif;
-            min-height: 100vh;
-        }
-
-        .card {
-            background-color: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(196, 162, 101, 0.3);
-            border-radius: 15px;
-            padding: 40px;
-            backdrop-filter: blur(10px);
-            width: 100%;
-            max-width: 750px;
-            margin: 40px auto;
-        }
-
-        .brand-header { text-align: center; margin-bottom: 40px; }
-        .brand-title {
-            font-size: 3rem;
-            color: var(--text-main);
-            margin: 0;
-            letter-spacing: 5px;
-            font-family: 'Cormorant Garamond', serif;
-        }
+        :root { --bg-color: #060E18; --gold-color: #C4A265; --text-main: #EEF0F2; --text-sec: #A0B1C1; }
+        body { background-color: var(--bg-color); color: var(--text-main); font-family: 'DM Sans', sans-serif; min-height: 100vh; }
+        .card { background-color: rgba(255, 255, 255, 0.02); border: 1px solid rgba(196, 162, 101, 0.3); border-radius: 15px; padding: 40px; backdrop-filter: blur(10px); width: 100%; max-width: 750px; margin: 40px auto; }
+        .brand-title { font-size: 3rem; color: var(--text-main); text-align: center; letter-spacing: 5px; font-family: 'Cormorant Garamond', serif; margin-bottom: 30px; }
         .brand-plus { color: var(--gold-color); font-weight: bold; }
-
-        /* Ajuste de Legibilidade das Seções */
-        .section-title {
-            color: var(--gold-color) !important;
-            border-bottom: 1px solid rgba(196, 162, 101, 0.3);
-            padding-bottom: 10px;
-            margin-bottom: 25px;
-            font-size: 1.4rem;
-            font-family: 'Cormorant Garamond', serif;
-            font-weight: 600;
-        }
-
-        .form-label {
-            color: var(--text-main) !important;
-            font-weight: 500;
-            font-size: 0.9rem;
-            margin-bottom: 8px;
-            display: block;
-        }
-
-        /* Ajuste de Legibilidade dos Inputs */
-        .form-control, .form-select {
-            background-color: var(--input-bg) !important;
-            border: 1px solid rgba(196, 162, 101, 0.4) !important;
-            color: #FFFFFF !important; /* Branco puro para máxima visibilidade ao digitar */
-            border-radius: 8px;
-            padding: 12px;
-        }
-
-        .form-control:focus, .form-select:focus {
-            background-color: rgba(255, 255, 255, 0.1) !important;
-            border-color: var(--gold-color) !important;
-            box-shadow: 0 0 0 0.25rem rgba(196, 162, 101, 0.25);
-            color: #FFFFFF !important;
-        }
-
-        .form-select option {
-            background-color: #0c1624;
-            color: #FFFFFF;
-        }
-
-        .helper-text {
-            color: var(--text-sec) !important;
-            font-size: 0.8rem;
-            margin-top: 5px;
-            display: block;
-        }
-
-        .btn-gold {
-            background-color: var(--gold-color);
-            color: var(--bg-color);
-            font-weight: 700;
-            border: none;
-            padding: 16px;
-            border-radius: 8px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            width: 100%;
-            transition: all 0.3s;
-        }
-
-        .btn-gold:hover {
-            background-color: #d4b375;
-            transform: translateY(-2px);
-        }
-
-        /* Tela de Sucesso - Ajuste de Contraste */
+        .section-title { color: var(--gold-color) !important; border-bottom: 1px solid rgba(196, 162, 101, 0.3); padding-bottom: 10px; margin-bottom: 25px; font-size: 1.4rem; font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+        .form-label { color: var(--text-main) !important; font-weight: 500; font-size: 0.9rem; margin-bottom: 8px; }
+        .form-control, .form-select { background-color: rgba(255, 255, 255, 0.05) !important; border: 1px solid rgba(196, 162, 101, 0.4) !important; color: #FFFFFF !important; border-radius: 8px; padding: 12px; }
+        .form-control:focus, .form-select:focus { background-color: rgba(255, 255, 255, 0.1) !important; border-color: var(--gold-color) !important; color: #FFFFFF !important; box-shadow: none; }
+        .form-select option { background-color: #0c1624; color: #FFFFFF; }
+        .btn-gold { background-color: var(--gold-color); color: var(--bg-color); font-weight: 700; border: none; padding: 16px; border-radius: 8px; text-transform: uppercase; width: 100%; transition: 0.3s; }
+        .btn-gold:hover { background-color: #d4b375; transform: translateY(-2px); }
         #successScreen { display: none; text-align: center; }
-        #successScreen h2 { color: var(--gold-color); font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; }
-        #successScreen p { color: #FFFFFF !important; font-size: 1.1rem; }
-
-        .cred-box {
-            background: rgba(196, 162, 101, 0.1);
-            border: 1px solid var(--gold-color);
-            padding: 25px;
-            border-radius: 12px;
-            margin: 30px 0;
-        }
-
-        .cred-label { color: var(--gold-color); font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
+        .cred-box { background: rgba(196, 162, 101, 0.1); border: 1px solid var(--gold-color); padding: 25px; border-radius: 12px; margin: 30px 0; }
         .cred-value { color: #FFFFFF !important; font-size: 1.3rem; font-weight: 600; display: block; margin-bottom: 10px; }
-
-        .btn-whatsapp-fix {
-            background-color: #25D366;
-            color: white !important;
-            font-weight: 700;
-            padding: 15px;
-            border-radius: 8px;
-            width: 100%;
-            border: none;
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-decoration: none;
-        }
-
-        .btn-outline-gold {
-            border: 1px solid var(--gold-color);
-            color: var(--gold-color) !important;
-            background: transparent;
-            padding: 12px;
-            border-radius: 8px;
-            width: 100%;
-            text-decoration: none;
-            display: block;
-            font-weight: 600;
-        }
+        .btn-whatsapp { background-color: #25D366; color: white !important; font-weight: 700; padding: 15px; border-radius: 8px; width: 100%; border: none; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; margin-bottom: 15px; }
+        .btn-outline-gold { border: 1px solid var(--gold-color); color: var(--gold-color) !important; padding: 12px; border-radius: 8px; width: 100%; text-decoration: none; display: block; font-weight: 600; }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="card" id="formScreen">
-            <div class="brand-header">
-                <h1 class="brand-title">EU<span class="brand-plus">+</span> NEGÓCIO</h1>
-                <div style="color: var(--gold-color); letter-spacing: 5px; font-size: 0.8rem; margin-top: 5px;">ANOTA AI</div>
-            </div>
+            <h1 class="brand-title">EU<span class="brand-plus">+</span> NEGÓCIO</h1>
+            <div style="background: rgba(196, 162, 101, 0.1); border: 1px solid var(--gold-color); color: var(--gold-color); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 35px; font-weight: 600;">7 DIAS DE ACESSO PREMIUM ILIMITADO.</div>
             
-            <div style="background: rgba(196, 162, 101, 0.1); border: 1px solid var(--gold-color); color: var(--gold-color); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 35px; font-weight: 600;">
-                VOCÊ TERÁ 7 DIAS DE ACESSO PREMIUM ILIMITADO.
-            </div>
-
             <form id="cadastroForm">
                 <div class="section-title">Identificação do Negócio</div>
                 <div class="row mb-4">
                     <div class="col-md-6">
                         <label class="form-label">Nome da Empresa</label>
-                        <input type="text" class="form-control" id="nomeEmpresa" required placeholder="Ex: Lavanderia Limpa">
-                        <span class="helper-text">Nome que aparecerá no seu painel.</span>
+                        <input type="text" class="form-control" id="nomeEmpresa" required>
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Nome do Responsável</label>
-                        <input type="text" class="form-control" id="nomeResponsavel" required placeholder="Ex: João Silva">
+                        <input type="text" class="form-control" id="nomeResponsavel" required>
                     </div>
                 </div>
-
                 <div class="mb-4">
                     <label class="form-label">Segmento de Atuação</label>
-                    <select class="form-select" id="tipoServico" required>
-                        <option value="">Selecione o segmento...</option>
+                    <select class="form-select" id="tipoServico" onchange="toggleOutro(this.value)" required>
+                        <option value="">Selecione...</option>
                         <option value="Lavanderia">Lavanderia</option>
-                        <option value="Academia">Academia / Studio</option>
-                        <option value="Barbearia">Barbearia / Salão</option>
-                        <option value="Estética">Estética / Clínica</option>
-                        <option value="Pet Shop">Pet Shop / Veterinária</option>
-                        <option value="Outro">Outro</option>
+                        <option value="Academia">Academia</option>
+                        <option value="Outro">Outro (especificar)</option>
                     </select>
                 </div>
-
+                <div class="mb-4" id="divOutro" style="display: none;">
+                    <label class="form-label">Especifique o Segmento</label>
+                    <input type="text" class="form-control" id="outroServico">
+                </div>
                 <div class="row mb-4">
                     <div class="col-md-6">
                         <label class="form-label">E-mail Corporativo</label>
-                        <input type="email" class="form-control" id="email" required placeholder="exemplo@email.com">
+                        <input type="email" class="form-control" id="email" required>
                     </div>
                     <div class="col-md-6">
-                        <label class="form-label">WhatsApp de Gestão</label>
-                        <input type="tel" class="form-control" id="whatsapp" required placeholder="(00) 00000-0000">
+                        <label class="form-label">WhatsApp</label>
+                        <input type="tel" class="form-control" id="whatsapp" required>
                     </div>
                 </div>
-
-                <button type="submit" class="btn btn-gold" id="btnSubmit">Finalizar e Iniciar Experiência Premium</button>
+                <button type="submit" class="btn btn-gold" id="btnSubmit">Finalizar e Iniciar Premium</button>
             </form>
         </div>
 
-        <!-- Tela de Sucesso Atualizada -->
         <div class="card" id="successScreen">
-            <h2>Cadastro Realizado!</h2>
-            <p>Sua jornada premium no <strong>Anota AI</strong> começou.</p>
-            
+            <h2 style="color: var(--gold-color); font-family: 'Cormorant Garamond', serif;">Cadastro Realizado!</h2>
             <div class="cred-box">
-                <span class="cred-label">Seu Usuário (E-mail)</span>
+                <span style="color: var(--gold-color); font-size: 0.8rem; text-transform: uppercase;">Usuário</span>
                 <span class="cred-value" id="resEmail">---</span>
-                
-                <span class="cred-label">Sua Senha de Acesso</span>
+                <span style="color: var(--gold-color); font-size: 0.8rem; text-transform: uppercase;">Senha</span>
                 <span class="cred-value" id="resSenha">---</span>
-                
-                <span class="cred-label">Status do Plano</span>
-                <span class="cred-value">7 Dias Premium (Trial)</span>
             </div>
-
-            <p style="font-size: 0.9rem; color: var(--text-sec) !important; margin-bottom: 25px;">
-                <strong>Importante:</strong> Para sua segurança, envie suas credenciais para seu WhatsApp antes de prosseguir.
-            </p>
-            
-            <a href="javascript:void(0)" onclick="enviarWhats()" class="btn-whatsapp-fix">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" viewBox="0 0 16 16">
-                    <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z"/>
-                </svg>
-                SALVAR CREDENCIAIS NO WHATSAPP
-            </a>
-
-            <a href="https://eumaisempresa.github.io/anotaai/painel.html" id="btnAcessar" class="btn-outline-gold" style="display: none;">
-                ACESSAR MEU PAINEL AGORA
-            </a>
+            <a href="javascript:void(0)" onclick="enviarWhats()" class="btn-whatsapp">SALVAR NO WHATSAPP (OBRIGATÓRIO)</a>
+            <a href="https://eumaisempresa.github.io/anotaai/painel.html" id="btnAcessar" class="btn-outline-gold" style="display: none;">ACESSAR MEU PAINEL</a>
         </div>
     </div>
 
     <script>
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxj7oDDxK3j6t_RNKmjUSZjRLXcK_lfRvP1smYUCKuLlj-5gXyMVjsw0BtKAr4u3OxX/exec';
 
+        function toggleOutro(val) { document.getElementById('divOutro').style.display = val === 'Outro' ? 'block' : 'none'; }
+
         document.getElementById('cadastroForm').onsubmit = function(e) {
             e.preventDefault();
             const btn = document.getElementById('btnSubmit');
-            btn.disabled = true;
-            btn.innerText = 'PROCESSANDO...';
+            btn.disabled = true; btn.innerText = 'GRAVANDO NA PLANILHA...';
 
-            const payload = {
+            const params = new URLSearchParams({
                 action: 'cadastrar_prestador',
-                payload: {
-                    nomeEmpresa: document.getElementById('nomeEmpresa').value,
-                    nomeResponsavel: document.getElementById('nomeResponsavel').value,
-                    tipoServico: document.getElementById('tipoServico').value,
-                    email: document.getElementById('email').value,
-                    whatsapp: document.getElementById('whatsapp').value
-                }
-            };
+                nomeEmpresa: document.getElementById('nomeEmpresa').value,
+                nomeResponsavel: document.getElementById('nomeResponsavel').value,
+                tipoServico: document.getElementById('tipoServico').value,
+                outroServico: document.getElementById('outroServico').value,
+                email: document.getElementById('email').value,
+                whatsapp: document.getElementById('whatsapp').value,
+                callback: 'handleResponse'
+            });
 
-            // Simulação de envio para laboratório
-            setTimeout(() => {
-                showSuccess(payload.payload.email, payload.payload.whatsapp);
-            }, 1500);
+            const script = document.createElement('script');
+            script.src = `${SCRIPT_URL}?${params.toString()}`;
+            document.body.appendChild(script);
         };
 
-        function showSuccess(email, whatsapp) {
-            document.getElementById('formScreen').style.display = 'none';
-            document.getElementById('successScreen').style.display = 'block';
-            document.getElementById('resEmail').innerText = email;
-            document.getElementById('resSenha').innerText = 'eu' + Math.floor(1000 + Math.random() * 9000) + 'mais';
-            
-            // Armazena o whats para a função de envio
-            window.userWhats = whatsapp.replace(/\D/g,'');
+        function handleResponse(res) {
+            if(res.success) {
+                document.getElementById('formScreen').style.display = 'none';
+                document.getElementById('successScreen').style.display = 'block';
+                document.getElementById('resEmail').innerText = res.email;
+                document.getElementById('resSenha').innerText = res.senha;
+                window.userWhats = document.getElementById('whatsapp').value.replace(/\D/g,'');
+            } else {
+                alert('Erro: ' + res.message);
+                document.getElementById('btnSubmit').disabled = false;
+            }
         }
 
         function enviarWhats() {
-            const email = document.getElementById('resEmail').innerText;
-            const senha = document.getElementById('resSenha').innerText;
-            const msg = `*Anota AI - Suas Credenciais*\n\nSeu acesso Premium de 7 dias está ativo!\n\n*Usuário:* ${email}\n*Senha:* ${senha}\n\n*Acesse aqui:* https://eumaisempresa.github.io/anotaai/painel.html`;
-            
+            const msg = `*Anota AI*\nUsuário: ${document.getElementById('resEmail').innerText}\nSenha: ${document.getElementById('resSenha').innerText}\nLink: https://eumaisempresa.github.io/anotaai/painel.html`;
             window.open(`https://wa.me/${window.userWhats}?text=${encodeURIComponent(msg)}`);
-            
-            // Após clicar em enviar, libera o botão de acessar o painel
             document.getElementById('btnAcessar').style.display = 'block';
         }
     </script>
