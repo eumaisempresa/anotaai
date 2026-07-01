@@ -50,6 +50,7 @@
                         <option value="">Selecione...</option>
                         <option value="Lavanderia">Lavanderia</option>
                         <option value="Academia">Academia</option>
+                        <option value="Academia">lutas</option>
                         <option value="Outro">Outro (especificar)</option>
                     </select>
                 </div>
@@ -124,7 +125,7 @@
         }
 
         function enviarWhats() {
-            const msg = `*Anota AI*\nUsuário: ${document.getElementById('resEmail').innerText}\nSenha: ${document.getElementById('resSenha').innerText}\nLink: https://eumaisempresa.github.io/anotaai/painel.html`;
+            const msg = `*Anota AI*\nUsuário: ${document.getElementById('resEmail').innerText}\nSenha: ${document.getElementById('resSenha').innerText}\nLink: https://eumaisempresa.github.io/anotaai/painel/index.html`;
             window.open(`https://wa.me/${window.userWhats}?text=${encodeURIComponent(msg)}`);
             document.getElementById('btnAcessar').style.display = 'block';
         }
