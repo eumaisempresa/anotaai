@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anota Aí - Cadastro Premium | EU+ NEGÓCIO</title>
+    <title>Anota Aí+ | Cadastro Premium | EU+ NEGÓCIO</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root { --bg-color: #060E18; --gold-color: #C4A265; --text-main: #EEF0F2; --text-sec: #A0B1C1; }
-        body { background-color: var(--bg-color); color: var(--text-main); font-family: 'DM Sans', sans-serif; min-height: 100vh; }
-        .card { background-color: rgba(255, 255, 255, 0.02); border: 1px solid rgba(196, 162, 101, 0.3); border-radius: 15px; padding: 40px; backdrop-filter: blur(10px); width: 100%; max-width: 750px; margin: 40px auto; }
+        body { background-color: var(--bg-color); color: var(--text-main); font-family: 'DM Sans', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+        .container { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .card { background-color: rgba(255, 255, 255, 0.02); border: 1px solid rgba(196, 162, 101, 0.3); border-radius: 15px; padding: 40px; backdrop-filter: blur(10px); width: 100%; max-width: 750px; }
         .brand-title { font-size: 3rem; color: var(--text-main); text-align: center; letter-spacing: 5px; font-family: 'Cormorant Garamond', serif; margin-bottom: 30px; }
         .brand-plus { color: var(--gold-color); font-weight: bold; }
         .section-title { color: var(--gold-color) !important; border-bottom: 1px solid rgba(196, 162, 101, 0.3); padding-bottom: 10px; margin-bottom: 25px; font-size: 1.4rem; font-family: 'Cormorant Garamond', serif; font-weight: 600; }
@@ -19,6 +20,7 @@
         .form-select option { background-color: #0c1624; color: #FFFFFF; }
         .btn-gold { background-color: var(--gold-color); color: var(--bg-color); font-weight: 700; border: none; padding: 16px; border-radius: 8px; text-transform: uppercase; width: 100%; transition: 0.3s; }
         .btn-gold:hover { background-color: #d4b375; transform: translateY(-2px); }
+        .footer { text-align: center; padding: 30px; font-size: 0.8rem; color: var(--text-sec); letter-spacing: 2px; text-transform: uppercase; }
         #successScreen { display: none; text-align: center; }
         .cred-box { background: rgba(196, 162, 101, 0.1); border: 1px solid var(--gold-color); padding: 25px; border-radius: 12px; margin: 30px 0; }
         .cred-value { color: #FFFFFF !important; font-size: 1.3rem; font-weight: 600; display: block; margin-bottom: 10px; }
@@ -29,7 +31,7 @@
 <body>
     <div class="container">
         <div class="card" id="formScreen">
-            <h1 class="brand-title">EU<span class="brand-plus">+</span> NEGÓCIO</h1>
+            <h1 class="brand-title">ANOTA AÍ<span class="brand-plus">+</span></h1>
             <div style="background: rgba(196, 162, 101, 0.1); border: 1px solid var(--gold-color); color: var(--gold-color); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 35px; font-weight: 600;">7 DIAS DE ACESSO PREMIUM ILIMITADO.</div>
             
             <form id="cadastroForm">
@@ -50,7 +52,8 @@
                         <option value="">Selecione...</option>
                         <option value="Lavanderia">Lavanderia</option>
                         <option value="Academia">Academia</option>
-                        <option value="Academia">lutas</option>
+                        <option value="Pet Shop">Pet Shop</option>
+                        <option value="Consultoria">Consultoria</option>
                         <option value="Outro">Outro (especificar)</option>
                     </select>
                 </div>
@@ -73,17 +76,22 @@
         </div>
 
         <div class="card" id="successScreen">
-            <h2 style="color: var(--gold-color); font-family: 'Cormorant Garamond', serif;">Cadastro Realizado!</h2>
+            <h2 style="color: var(--gold-color); font-family: 'Cormorant Garamond', serif;">Anota Aí<span class="brand-plus">+</span></h2>
+            <p>Seu cadastro foi concluído! Suas credenciais foram enviadas para seu e-mail e podem ser salvas abaixo.</p>
             <div class="cred-box">
-                <span style="color: var(--gold-color); font-size: 0.8rem; text-transform: uppercase;">Usuário</span>
+                <span style="color: var(--gold-color); font-size: 0.8rem; text-transform: uppercase;">Usuário (E-mail)</span>
                 <span class="cred-value" id="resEmail">---</span>
-                <span style="color: var(--gold-color); font-size: 0.8rem; text-transform: uppercase;">Senha</span>
+                <span style="color: var(--gold-color); font-size: 0.8rem; text-transform: uppercase;">Senha Gerada</span>
                 <span class="cred-value" id="resSenha">---</span>
             </div>
-            <a href="javascript:void(0)" onclick="enviarWhats()" class="btn-whatsapp">SALVAR NO WHATSAPP (OBRIGATÓRIO)</a>
-            <a href="https://eumaisempresa.github.io/anotaai/painel.html" id="btnAcessar" class="btn-outline-gold" style="display: none;">ACESSAR MEU PAINEL</a>
+            <a href="javascript:void(0)" onclick="enviarWhats()" class="btn-whatsapp">SALVAR NO WHATSAPP</a>
+            <a href="https://eumaisempresa.github.io/anotaai/painel.html" id="btnAcessar" class="btn-outline-gold">ACESSAR MEU PAINEL</a>
         </div>
     </div>
+
+    <footer class="footer">
+        Ecossistema EU+ / Eu+ Empresa / Eu+ Negócio
+    </footer>
 
     <script>
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxj7oDDxK3j6t_RNKmjUSZjRLXcK_lfRvP1smYUCKuLlj-5gXyMVjsw0BtKAr4u3OxX/exec';
@@ -121,13 +129,13 @@
             } else {
                 alert('Erro: ' + res.message);
                 document.getElementById('btnSubmit').disabled = false;
+                document.getElementById('btnSubmit').innerText = 'TENTAR NOVAMENTE';
             }
         }
 
         function enviarWhats() {
-            const msg = `*Anota AI*\nUsuário: ${document.getElementById('resEmail').innerText}\nSenha: ${document.getElementById('resSenha').innerText}\nLink: https://eumaisempresa.github.io/anotaai/painel/index.html`;
+            const msg = `*Anota Aí+*\nSeu cadastro foi concluído!\n\nUsuário: ${document.getElementById('resEmail').innerText}\nSenha: ${document.getElementById('resSenha').innerText}\n\nAcesse seu painel: https://eumaisempresa.github.io/anotaai/painel.html`;
             window.open(`https://wa.me/${window.userWhats}?text=${encodeURIComponent(msg)}`);
-            document.getElementById('btnAcessar').style.display = 'block';
         }
     </script>
 </body>
