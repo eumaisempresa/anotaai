@@ -17,7 +17,6 @@
         .form-label { color: var(--text-main) !important; font-weight: 500; font-size: 0.9rem; margin-bottom: 8px; }
         .form-control, .form-select { background-color: rgba(255, 255, 255, 0.05) !important; border: 1px solid rgba(196, 162, 101, 0.4) !important; color: #FFFFFF !important; border-radius: 8px; padding: 12px; }
         .form-control:focus, .form-select:focus { background-color: rgba(255, 255, 255, 0.1) !important; border-color: var(--gold-color) !important; color: #FFFFFF !important; box-shadow: none; }
-        .form-select option { background-color: #0c1624; color: #FFFFFF; }
         .btn-gold { background-color: var(--gold-color); color: var(--bg-color); font-weight: 700; border: none; padding: 16px; border-radius: 8px; text-transform: uppercase; width: 100%; transition: 0.3s; }
         .btn-gold:hover { background-color: #d4b375; transform: translateY(-2px); }
         .footer { text-align: center; padding: 30px; font-size: 0.8rem; color: var(--text-sec); letter-spacing: 2px; text-transform: uppercase; }
@@ -25,7 +24,6 @@
         .cred-box { background: rgba(196, 162, 101, 0.1); border: 1px solid var(--gold-color); padding: 25px; border-radius: 12px; margin: 30px 0; }
         .cred-value { color: #FFFFFF !important; font-size: 1.3rem; font-weight: 600; display: block; margin-bottom: 10px; }
         .btn-whatsapp { background-color: #25D366; color: white !important; font-weight: 700; padding: 15px; border-radius: 8px; width: 100%; border: none; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; margin-bottom: 15px; }
-        .btn-outline-gold { border: 1px solid var(--gold-color); color: var(--gold-color) !important; padding: 12px; border-radius: 8px; width: 100%; text-decoration: none; display: block; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -77,21 +75,20 @@
 
         <div class="card" id="successScreen">
             <h2 style="color: var(--gold-color); font-family: 'Cormorant Garamond', serif;">Anota Aí<span class="brand-plus">+</span></h2>
-            <p>Seu cadastro foi concluído! Suas credenciais foram enviadas para seu e-mail e podem ser salvas abaixo.</p>
             <div class="cred-box">
+                <span style="color: var(--gold-color); font-size: 0.8rem; text-transform: uppercase;">ID Cliente Mais</span>
+                <span class="cred-value" id="resID">---</span>
                 <span style="color: var(--gold-color); font-size: 0.8rem; text-transform: uppercase;">Usuário (E-mail)</span>
                 <span class="cred-value" id="resEmail">---</span>
                 <span style="color: var(--gold-color); font-size: 0.8rem; text-transform: uppercase;">Senha Gerada</span>
                 <span class="cred-value" id="resSenha">---</span>
             </div>
             <a href="javascript:void(0)" onclick="enviarWhats()" class="btn-whatsapp">SALVAR NO WHATSAPP</a>
-            <a href="https://eumaisempresa.github.io/anotaai/painel.html" id="btnAcessar" class="btn-outline-gold">ACESSAR MEU PAINEL</a>
+            <a href="https://eumaisempresa.github.io/anotaai/painel.html" class="btn btn-outline-light w-100">ACESSAR MEU PAINEL</a>
         </div>
     </div>
 
-    <footer class="footer">
-        Ecossistema EU+ / Eu+ Empresa / Eu+ Negócio
-    </footer>
+    <footer class="footer">Ecossistema EU+ / Eu+ Empresa / Eu+ Negócio</footer>
 
     <script>
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxj7oDDxK3j6t_RNKmjUSZjRLXcK_lfRvP1smYUCKuLlj-5gXyMVjsw0BtKAr4u3OxX/exec';
@@ -123,6 +120,7 @@
             if(res.success) {
                 document.getElementById('formScreen').style.display = 'none';
                 document.getElementById('successScreen').style.display = 'block';
+                document.getElementById('resID').innerText = res.id_cliente_mais;
                 document.getElementById('resEmail').innerText = res.email;
                 document.getElementById('resSenha').innerText = res.senha;
                 window.userWhats = document.getElementById('whatsapp').value.replace(/\D/g,'');
@@ -134,7 +132,7 @@
         }
 
         function enviarWhats() {
-            const msg = `*Anota Aí+*\nSeu cadastro foi concluído!\n\nUsuário: ${document.getElementById('resEmail').innerText}\nSenha: ${document.getElementById('resSenha').innerText}\n\nAcesse seu painel: https://eumaisempresa.github.io/anotaai/painel/index.html`;
+            const msg = `*Anota Aí+*\nID: ${document.getElementById('resID').innerText}\nUsuário: ${document.getElementById('resEmail').innerText}\nSenha: ${document.getElementById('resSenha').innerText}\n\nAcesse: https://eumaisempresa.github.io/anotaai/painel.html`;
             window.open(`https://wa.me/${window.userWhats}?text=${encodeURIComponent(msg)}`);
         }
     </script>
