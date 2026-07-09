@@ -9,9 +9,6 @@
     <style>
         :root { --bg-color: #060E18; --gold-color: #C4A265; --text-main: #EEF0F2; --text-sec: #A0B1C1; }
         body { background-color: var(--bg-color); color: var(--text-main); font-family: 'DM Sans', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
-        .header { border-bottom: 1px solid rgba(196, 162, 101, 0.2); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
-        .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; }
-        .brand span { color: var(--gold-color); font-weight: bold; }
         .login-screen { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
         .login-card { max-width: 400px; width: 100%; background: rgba(255,255,255,0.02); border: 1px solid var(--gold-color); padding: 30px; border-radius: 15px; }
         .main-content { display: none; flex: 1; padding: 40px; }
@@ -34,7 +31,7 @@
                 <label class="form-label">Senha Master</label>
                 <input type="password" id="loginSenha" class="form-control">
             </div>
-            <button onclick="fazerLogin()" class="btn btn-gold w-100">ENTRAR NO MASTER</button>
+            <button onclick="fazerLogin()" class="btn btn-gold w-100" id="btnLogin">ENTRAR NO MASTER</button>
         </div>
     </div>
 
@@ -57,12 +54,14 @@
     </footer>
 
     <script>
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzHoAi4E1rt8rdHeEqVpwi1lDseNJtQKpPUdqcjYeHfIUoUp4yRSWIA68e65rDTJr4y/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxj7oDDxK3j6t_RNKmjUSZjRLXcK_lfRvP1smYUCKuLlj-5gXyMVjsw0BtKAr4u3OxX/exec';
         let adminEmail = '', adminSenha = '';
 
         function fazerLogin() {
             adminEmail = document.getElementById('loginEmail').value;
             adminSenha = document.getElementById('loginSenha').value;
+            const btn = document.getElementById('btnLogin');
+            btn.disabled = true; btn.innerText = 'AUTENTICANDO...';
             
             const script = document.createElement('script');
             script.src = `${SCRIPT_URL}?action=get_dados_admin&email=${adminEmail}&senha=${adminSenha}&callback=handleLogin`;
@@ -70,6 +69,8 @@
         }
 
         function handleLogin(res) {
+            document.getElementById('btnLogin').disabled = false;
+            document.getElementById('btnLogin').innerText = 'ENTRAR NO MASTER';
             if(res.success) {
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
@@ -86,17 +87,19 @@
         function renderDados(res) {
             const tbody = document.getElementById('tabelaAdmin');
             tbody.innerHTML = '';
-            res.prestadores.forEach(p => {
-                tbody.innerHTML += `<tr>
-                    <td>${p.id}</td>
-                    <td>${p.empresa}</td>
-                    <td>${p.responsavel}</td>
-                    <td>${p.plano}</td>
-                    <td><span class="badge ${p.status === 'Ativo' ? 'bg-success' : 'bg-danger'}">${p.status}</span></td>
-                    <td>${new Date(p.inicio).toLocaleDateString()}</td>
-                    <td><button class="btn btn-sm btn-outline-gold">Gerenciar</button></td>
-                </tr>`;
-            });
+            if(res.success) {
+                res.prestadores.forEach(p => {
+                    tbody.innerHTML += `<tr>
+                        <td>${p.id}</td>
+                        <td>${p.empresa}</td>
+                        <td>${p.responsavel}</td>
+                        <td>${p.plano}</td>
+                        <td><span class="badge ${p.status === 'Ativo' ? 'bg-success' : 'bg-danger'}">${p.status}</span></td>
+                        <td>${new Date(p.inicio).toLocaleDateString()}</td>
+                        <td><button class="btn btn-sm btn-outline-gold">Gerenciar</button></td>
+                    </tr>`;
+                });
+            }
         }
     </script>
 </body>
