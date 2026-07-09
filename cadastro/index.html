@@ -4,20 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anota Aí+ | Cadastro Premium</title>
-    <link href="https://cdn.jsdelivr.net/
-
-
-
-
-Manus is an AI Agent and can make mistakes. Please double-check before use.
-
-cadastro_chiaroscuro.html
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anota Aí+ | Cadastro Premium</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
@@ -34,7 +20,7 @@ cadastro_chiaroscuro.html
         .btn-gold { background-color: var(--gold-color); color: var(--bg-color); font-weight: 700; border: none; padding: 16px; border-radius: 8px; text-transform: uppercase; width: 100%; transition: 0.3s; }
         .btn-gold:hover { background-color: #d4b375; transform: translateY(-2px); }
         .footer { text-align: center; padding: 30px; font-size: 0.8rem; color: var(--text-sec); letter-spacing: 2px; text-transform: uppercase; }
-        #successScreen { display: none; text-align: center; }
+        #successScreen, #forgotScreen { display: none; text-align: center; }
         .cred-box { background: rgba(196, 162, 101, 0.1); border: 1px solid var(--gold-color); padding: 25px; border-radius: 12px; margin: 30px 0; }
         .cred-value { color: #FFFFFF !important; font-size: 1.3rem; font-weight: 600; display: block; margin-bottom: 10px; }
         .btn-whatsapp { background-color: #25D366; color: white !important; font-weight: 700; padding: 15px; border-radius: 8px; width: 100%; border: none; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none; margin-bottom: 15px; }
@@ -44,7 +30,7 @@ cadastro_chiaroscuro.html
     <div class="container">
         <div class="card" id="formScreen">
             <h1 class="brand-title">ANOTA AÍ<span class="brand-plus">+</span></h1>
-            <div style="background: rgba(196, 162, 101, 0.1); border: 1px solid var(--gold-color); color: var(--gold-color); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 35px; font-weight: 600;">1 CICLO DE ACESSO PREMIUM ILIMITADO.</div>
+            <div style="background: rgba(196, 162, 101, 0.1); border: 1px solid var(--gold-color); color: var(--gold-color); padding: 15px; border-radius: 8px; text-align: center; margin-bottom: 35px; font-weight: 600;">7 DIAS DE ACESSO PREMIUM ILIMITADO.</div>
             
             <form id="cadastroForm">
                 <div class="section-title">Identificação do Negócio</div>
@@ -75,7 +61,7 @@ cadastro_chiaroscuro.html
                 </div>
                 <div class="row mb-4">
                     <div class="col-md-6">
-                        <label class="form-label">E-mail</label>
+                        <label class="form-label">E-mail Corporativo</label>
                         <input type="email" class="form-control" id="email" required>
                     </div>
                     <div class="col-md-6">
@@ -84,7 +70,18 @@ cadastro_chiaroscuro.html
                     </div>
                 </div>
                 <button type="submit" class="btn btn-gold" id="btnSubmit">Finalizar e Iniciar Premium</button>
+                <div class="text-center mt-3">
+                    <a href="javascript:void(0)" onclick="showForgot()" style="color: var(--text-sec); font-size: 0.8rem;">Esqueci minha senha</a>
+                </div>
             </form>
+        </div>
+
+        <div class="card" id="forgotScreen">
+            <h2 class="gold-text mb-4">Recuperar Senha</h2>
+            <p class="mb-4">Digite seu e-mail para receber as credenciais.</p>
+            <input type="email" id="forgotEmail" class="form-control mb-3" placeholder="Seu e-mail de cadastro">
+            <button onclick="recuperarSenha()" class="btn btn-gold mb-3" id="btnForgot">ENVIAR SENHA</button>
+            <a href="javascript:void(0)" onclick="showForm()" class="d-block" style="color: var(--text-sec);">Voltar ao cadastro</a>
         </div>
 
         <div class="card" id="successScreen">
@@ -105,23 +102,16 @@ cadastro_chiaroscuro.html
     <footer class="footer">Ecossistema EU+ / Eu+ Empresa / Eu+ Negócio</footer>
 
     <script>
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzHoAi4E1rt8rdHeEqVpwi1lDseNJtQKpPUdqcjYeHfIUoUp4yRSWIA68e65rDTJr4y/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxj7oDDxK3j6t_RNKmjUSZjRLXcK_lfRvP1smYUCKuLlj-5gXyMVjsw0BtKAr4u3OxX/exec';
 
         function toggleOutro(val) { document.getElementById('divOutro').style.display = val === 'Outro' ? 'block' : 'none'; }
+        function showForgot() { document.getElementById('formScreen').style.display = 'none'; document.getElementById('forgotScreen').style.display = 'block'; }
+        function showForm() { document.getElementById('forgotScreen').style.display = 'none'; document.getElementById('formScreen').style.display = 'block'; }
 
         document.getElementById('cadastroForm').onsubmit = function(e) {
             e.preventDefault();
             const btn = document.getElementById('btnSubmit');
             btn.disabled = true; btn.innerText = 'CONECTANDO AO GOOGLE...';
-
-            // Timeout de 15 segundos para avisar se o Google falhar
-            const timer = setTimeout(() => {
-                if (btn.disabled) {
-                    alert("O Google está demorando a responder. Verifique se você autorizou o script no editor e se ele está publicado como 'Qualquer Pessoa'.");
-                    btn.disabled = false; btn.innerText = 'TENTAR NOVAMENTE';
-                }
-            }, 15000);
-
             const params = new URLSearchParams({
                 action: 'cadastrar_prestador',
                 nomeEmpresa: document.getElementById('nomeEmpresa').value,
@@ -132,14 +122,8 @@ cadastro_chiaroscuro.html
                 whatsapp: document.getElementById('whatsapp').value,
                 callback: 'handleResponse'
             });
-
             const script = document.createElement('script');
             script.src = `${SCRIPT_URL}?${params.toString()}`;
-            script.onerror = () => {
-                clearTimeout(timer);
-                alert("Erro técnico de conexão. Verifique a URL do Script.");
-                btn.disabled = false; btn.innerText = 'TENTAR NOVAMENTE';
-            };
             document.body.appendChild(script);
         };
 
@@ -151,11 +135,24 @@ cadastro_chiaroscuro.html
                 document.getElementById('resEmail').innerText = res.email;
                 document.getElementById('resSenha').innerText = res.senha;
                 window.userWhats = document.getElementById('whatsapp').value.replace(/\D/g,'');
-            } else {
-                alert('Erro na Planilha: ' + res.message);
-                document.getElementById('btnSubmit').disabled = false;
-                document.getElementById('btnSubmit').innerText = 'TENTAR NOVAMENTE';
-            }
+            } else { alert('Erro: ' + res.message); document.getElementById('btnSubmit').disabled = false; document.getElementById('btnSubmit').innerText = 'TENTAR NOVAMENTE'; }
+        }
+
+        function recuperarSenha() {
+            const email = document.getElementById('forgotEmail').value;
+            if(!email) return alert('Digite seu e-mail');
+            const btn = document.getElementById('btnForgot');
+            btn.disabled = true; btn.innerText = 'ENVIANDO...';
+            const script = document.createElement('script');
+            script.src = `${SCRIPT_URL}?action=recuperar_senha&email=${email}&callback=handleForgot`;
+            document.body.appendChild(script);
+        }
+
+        function handleForgot(res) {
+            alert(res.message);
+            document.getElementById('btnForgot').disabled = false;
+            document.getElementById('btnForgot').innerText = 'ENVIAR SENHA';
+            if(res.success) showForm();
         }
 
         function enviarWhats() {
@@ -165,4 +162,3 @@ cadastro_chiaroscuro.html
     </script>
 </body>
 </html>
-Anota AI+ - Manus
