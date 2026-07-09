@@ -3,32 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel Funcional - Anota Aí | EU+ NEGÓCIO</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapi<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Painel Funcional - Anota Aí+ | EU+ NEGÓCIO</title>
+    <title>Painel Anota Aí+ | EU+ NEGÓCIO</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
     <style>
         :root { --bg-color: #060E18; --gold-color: #C4A265; --text-main: #EEF0F2; --text-sec: #A0B1C1; }
         body { background-color: var(--bg-color); color: var(--text-main); font-family: 'DM Sans', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
-        .header { border-bottom: 1px solid rgba(196, 162, 101, 0.2); padding: 20px 40px; display: flex; justify-content: space-between; align-items: center; }
-        .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; }
-        .brand span { color: var(--gold-color); font-weight: bold; }
         .login-screen { flex: 1; display: flex; align-items: center; justify-content: center; padding: 20px; }
         .login-card { max-width: 400px; width: 100%; background: rgba(255,255,255,0.02); border: 1px solid var(--gold-color); padding: 30px; border-radius: 15px; backdrop-filter: blur(10px); }
-        .main-content { display: none; flex: 1; padding: 40px; }
-        .kpi-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(196,162,101,0.2); padding: 20px; border-radius: 10px; text-align: center; }
+        .main-content { display: none; flex: 1; padding: 20px; }
+        .header { border-bottom: 1px solid rgba(196, 162, 101, 0.2); padding: 15px 30px; display: flex; justify-content: space-between; align-items: center; }
+        .brand { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; }
+        .brand span { color: var(--gold-color); font-weight: bold; }
         .gold-text { color: var(--gold-color); }
-        .btn-gold { background: var(--gold-color); color: var(--bg-color); font-weight: bold; border: none; padding: 12px; }
-        .table { color: var(--text-main); border-color: rgba(196,162,101,0.2); }
-        .footer { text-align: center; padding: 30px; font-size: 0.8rem; color: var(--text-sec); letter-spacing: 2px; text-transform: uppercase; border-top: 1px solid rgba(196,162,101,0.1); }
+        .btn-gold { background: var(--gold-color); color: var(--bg-color); font-weight: bold; border: none; padding: 12px; border-radius: 8px; }
+        .kpi-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin-bottom: 30px; }
+        .kpi-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(196,162,101,0.2); padding: 15px; border-radius: 10px; text-align: center; }
+        .kpi-value { font-size: 1.2rem; font-weight: bold; color: var(--gold-color); }
+        .kpi-label { font-size: 0.7rem; text-transform: uppercase; color: var(--text-sec); }
+        .table { color: var(--text-main); border-color: rgba(196,162,101,0.1); }
         .form-control { background: rgba(255,255,255,0.05); color: white; border-color: var(--gold-color); }
         .form-control:focus { background: rgba(255,255,255,0.1); color: white; border-color: var(--gold-color); box-shadow: none; }
+        .footer { text-align: center; padding: 30px; font-size: 0.8rem; color: var(--text-sec); letter-spacing: 2px; text-transform: uppercase; border-top: 1px solid rgba(196, 162, 101, 0.1); }
     </style>
 </head>
 <body>
@@ -43,130 +39,27 @@
                 <label class="form-label">Senha</label>
                 <input type="password" id="loginSenha" class="form-control">
             </div>
-            <button onclick="fazerLogin()" class="btn btn-gold w-100">ENTRAR NO PAINEL</button>
+            <button onclick="fazerLogin()" class="btn btn-gold w-100" id="btnLogin">ENTRAR NO PAINEL</button>
+            <div class="text-center mt-3">
+                <a href="https://eumaisempresa.github.io/anotaai/cadastro/" style="color: var(--text-sec); font-size: 0.8rem;">Não tem conta? Cadastre-se</a>
+            </div>
         </div>
     </div>
 
     <div id="mainContent" class="main-content">
-        <div class="d-flex justify-content-between align-items-center mb-5">
-            <h1 id="nomeEmpresa" class="gold-text" style="font-family: 'Cormorant Garamond'">Painel do Cliente <span>+</span></h1>
-            <a href="https://wa.me/5527998131806" target="_blank" class="btn btn-success">Fale Conosco</a>
-        </div>
-
-        <div class="row g-3 mb-5">
-            <div class="col-md-3"><div class="kpi-card"><div class="small text-uppercase">Total Clientes</div><div class="h3 gold-text" id="kpiTotal">0</div></div></div>
-            <div class="col-md-3"><div class="kpi-card"><div class="small text-uppercase">Ativos</div><div class="h3 text-success" id="kpiAtivos">0</div></div></div>
-            <div class="col-md-3"><div class="kpi-card"><div class="small text-uppercase">Inativos</div><div class="h3 text-danger" id="kpiInativos">0</div></div></div>
-            <div class="col-md-3"><div class="kpi-card"><div class="small text-uppercase">Saldo Global</div><div class="h3 gold-text" id="kpiSaldo">0</div></div></div>
-        </div>
-
-        <div class="table-responsive">
-            <table class="table table-hover">
-                <thead><tr><th>Cliente</th><th>Plano</th><th>Vencimento</th><th>Saldo</th><th>Status</th><th>Ações</th></tr></thead>
-                <tbody id="tabelaClientes"></tbody>
-            </table>
-        </div>
-    </div>
-
-    <footer class="footer">
-        Ecossistema EU+ / Eu+ Empresa / Eu+ Negócio
-    </footer>
-
-    <script>
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzHoAi4E1rt8rdHeEqVpwi1lDseNJtQKpPUdqcjYeHfIUoUp4yRSWIA68e65rDTJr4y/exec';
-        let id_cliente_mais = '';
-
-        function fazerLogin() {
-            const email = document.getElementById('loginEmail').value;
-            const senha = document.getElementById('loginSenha').value;
-            
-            const script = document.createElement('script');
-            script.src = `${SCRIPT_URL}?action=login&email=${email}&senha=${senha}&callback=handleLogin`;
-            document.body.appendChild(script);
-        }
-
-        function handleLogin(res) {
-            if(res.success) {
-                id_cliente_mais = res.id_cliente_mais;
-                document.getElementById('nomeEmpresa').innerHTML = res.nomeEmpresa + ' <span style="color:white">+</span>';
-                document.getElementById('loginScreen').style.display = 'none';
-                document.getElementById('mainContent').style.display = 'block';
-                carregarDados();
-            } else { alert(res.message); }
-        }
-
-        function carregarDados() {
-            const script = document.createElement('script');
-            script.src = `${SCRIPT_URL}?action=get_dados_painel&id_cliente_mais=${id_cliente_mais}&callback=renderDados`;
-            document.body.appendChild(script);
-        }
-
-        function renderDados(res) {
-            const tbody = document.getElementById('tabelaClientes');
-            tbody.innerHTML = '';
-            let total = 0, ativos = 0, inativos = 0, saldo = 0;
-
-            res.clientes.forEach(c => {
-                total++;
-                if(c.status === 'Ativo') ativos++; else inativos++;
-                saldo += parseFloat(c.saldo || 0);
-
-                tbody.innerHTML += `<tr>
-                    <td>${c.nome}</td>
-                    <td>${c.plano}</td>
-                    <td>${new Date(c.vencimento).toLocaleDateString()}</td>
-                    <td>${c.saldo}</td>
-                    <td><span class="badge ${c.status === 'Ativo' ? 'bg-success' : 'bg-danger'}">${c.status}</span></td>
-                    <td><button class="btn btn-sm btn-outline-gold">WhatsApp</button></td>
-                </tr>`;
-            });
-
-            document.getElementById('kpiTotal').innerText = total;
-            document.getElementById('kpiAtivos').innerText = ativos;
-            document.getElementById('kpiInativos').innerText = inativos;
-            document.getElementById('kpiSaldo').innerText = saldo;
-        }
-    </script>
-</body>
-</html>s.com/css2?family=Cormorant+Garamond:wght@400;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-    <style>
-        :root { --bg-color: #060E18; --gold-color: #C4A265; --text-main: #EEF0F2; }
-        body { background-color: var(--bg-color); color: var(--text-main); font-family: 'DM Sans', sans-serif; }
-        .login-card { max-width: 400px; margin: 100px auto; background: rgba(255,255,255,0.02); border: 1px solid var(--gold-color); padding: 30px; border-radius: 15px; }
-        .main-content { display: none; padding: 20px; }
-        .kpi-card { background: rgba(255,255,255,0.03); border: 1px solid rgba(196,162,101,0.2); padding: 15px; border-radius: 10px; text-align: center; }
-        .gold-text { color: var(--gold-color); }
-        .btn-gold { background: var(--gold-color); color: var(--bg-color); font-weight: bold; border: none; }
-        .table { color: var(--text-main); border-color: rgba(196,162,101,0.2); }
-    </style>
-</head>
-<body>
-    <div id="loginScreen" class="container">
-        <div class="login-card">
-            <h2 class="text-center gold-text mb-4" style="font-family: 'Cormorant Garamond'">Login Cliente</h2>
-            <div class="mb-3">
-                <label class="form-label">E-mail</label>
-                <input type="email" id="loginEmail" class="form-control" style="background: transparent; color: white; border-color: var(--gold-color)">
+        <div class="header mb-4">
+            <div class="brand">Anota Aí<span>+</span></div>
+            <div class="d-flex align-items-center gap-3">
+                <span id="nomeEmpresa" class="gold-text fw-bold">---</span>
+                <button onclick="logout()" class="btn btn-sm btn-outline-light">Sair</button>
             </div>
-            <div class="mb-3">
-                <label class="form-label">Senha</label>
-                <input type="password" id="loginSenha" class="form-control" style="background: transparent; color: white; border-color: var(--gold-color)">
-            </div>
-            <button onclick="fazerLogin()" class="btn btn-gold w-100">ENTRAR NO PAINEL</button>
-        </div>
-    </div>
-
-    <div id="mainContent" class="main-content">
-        <div class="d-flex justify-content-between align-items-center mb-4">
-            <h1 id="nomeEmpresa" class="gold-text" style="font-family: 'Cormorant Garamond'">Painel do Cliente <span class="brand-plus">+</span></h1>
-            <a href="https://wa.me/5527998131806" class="btn btn-success">Fale Conosco</a>
         </div>
 
-        <div class="row g-3 mb-4">
-            <div class="col-md-3"><div class="kpi-card"><div class="small">CLIENTES</div><div class="h4 gold-text" id="kpiTotal">0</div></div></div>
-            <div class="col-md-3"><div class="kpi-card"><div class="small">ATIVOS</div><div class="h4 text-success" id="kpiAtivos">0</div></div></div>
-            <div class="col-md-3"><div class="kpi-card"><div class="small">INATIVOS</div><div class="h4 text-danger" id="kpiInativos">0</div></div></div>
-            <div class="col-md-3"><div class="kpi-card"><div class="small">SALDO TOTAL</div><div class="h4 gold-text" id="kpiSaldo">0</div></div></div>
+        <div class="kpi-bar">
+            <div class="kpi-card"><div class="kpi-value" id="kpiClientes">0</div><div class="kpi-label">Clientes</div></div>
+            <div class="kpi-card"><div class="kpi-value" id="kpiAtivos">0</div><div class="kpi-label">Ativos</div></div>
+            <div class="kpi-card"><div class="kpi-value" id="kpiInativos">0</div><div class="kpi-label">Inativos</div></div>
+            <div class="kpi-card"><div class="kpi-value" id="kpiSaldo">0</div><div class="kpi-label">Saldo Total</div></div>
         </div>
 
         <div class="table-responsive">
@@ -177,13 +70,19 @@
         </div>
     </div>
 
+    <footer class="footer">Ecossistema EU+ / Eu+ Empresa / Eu+ Negócio</footer>
+
     <script>
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxj7oDDxK3j6t_RNKmjUSZjRLXcK_lfRvP1smYUCKuLlj-5gXyMVjsw0BtKAr4u3OxX/exec';
-        let idPrestador = '';
+        let idClienteMais = '';
 
         function fazerLogin() {
             const email = document.getElementById('loginEmail').value;
             const senha = document.getElementById('loginSenha').value;
+            if(!email || !senha) return alert('Preencha os campos');
+            
+            const btn = document.getElementById('btnLogin');
+            btn.disabled = true; btn.innerText = 'VALIDANDO...';
             
             const script = document.createElement('script');
             script.src = `${SCRIPT_URL}?action=login&email=${email}&senha=${senha}&callback=handleLogin`;
@@ -191,8 +90,10 @@
         }
 
         function handleLogin(res) {
+            document.getElementById('btnLogin').disabled = false;
+            document.getElementById('btnLogin').innerText = 'ENTRAR NO PAINEL';
             if(res.success) {
-                idPrestador = res.idPrestador;
+                idClienteMais = res.id_cliente_mais;
                 document.getElementById('nomeEmpresa').innerText = res.nomeEmpresa + ' +';
                 document.getElementById('loginScreen').style.display = 'none';
                 document.getElementById('mainContent').style.display = 'block';
@@ -202,35 +103,35 @@
 
         function carregarDados() {
             const script = document.createElement('script');
-            script.src = `${SCRIPT_URL}?action=get_dados_painel&idPrestador=${idPrestador}&callback=renderDados`;
+            script.src = `${SCRIPT_URL}?action=get_dados_painel&id_cliente_mais=${idClienteMais}&callback=renderDados`;
             document.body.appendChild(script);
         }
 
         function renderDados(res) {
             const tbody = document.getElementById('tabelaClientes');
             tbody.innerHTML = '';
-            let total = 0, ativos = 0, inativos = 0, saldo = 0;
-
-            res.clientes.forEach(c => {
-                total++;
-                if(c.status === 'Ativo') ativos++; else inativos++;
-                saldo += parseFloat(c.saldo || 0);
-
-                tbody.innerHTML += `<tr>
-                    <td>${c.nome}</td>
-                    <td>${c.plano}</td>
-                    <td>${new Date(c.vencimento).toLocaleDateString()}</td>
-                    <td>${c.saldo}</td>
-                    <td><span class="badge ${c.status === 'Ativo' ? 'bg-success' : 'bg-danger'}">${c.status}</span></td>
-                    <td><button class="btn btn-sm btn-outline-light">WhatsApp</button></td>
-                </tr>`;
-            });
-
-            document.getElementById('kpiTotal').innerText = total;
-            document.getElementById('kpiAtivos').innerText = ativos;
-            document.getElementById('kpiInativos').innerText = inativos;
-            document.getElementById('kpiSaldo').innerText = saldo;
+            if(res.success) {
+                document.getElementById('kpiClientes').innerText = res.clientes.length;
+                let ativos = 0, saldo = 0;
+                res.clientes.forEach(c => {
+                    if(c.status === 'Ativo') ativos++;
+                    saldo += Number(c.saldo || 0);
+                    tbody.innerHTML += `<tr>
+                        <td>${c.nome}</td>
+                        <td>${c.plano}</td>
+                        <td>${new Date(c.vencimento).toLocaleDateString()}</td>
+                        <td>${c.saldo}</td>
+                        <td><span class="badge ${c.status === 'Ativo' ? 'bg-success' : 'bg-danger'}">${c.status}</span></td>
+                        <td><button class="btn btn-sm btn-outline-gold">Gerenciar</button></td>
+                    </tr>`;
+                });
+                document.getElementById('kpiAtivos').innerText = ativos;
+                document.getElementById('kpiInativos').innerText = res.clientes.length - ativos;
+                document.getElementById('kpiSaldo').innerText = saldo;
+            }
         }
+
+        function logout() { location.reload(); }
     </script>
 </body>
 </html>
